@@ -41,16 +41,6 @@ def closer(driver):
     driver.switch_to.window(handles[0])
     driver.quit()
 
-def quer(frame):
-    genai.configure(api_key="AIzaSyDdDpX2sFbSHzkxeyUCOER4Fjccuh-9JwI")
-    prompt_parts = [
-        rf"from the data frame \n{frame}\n ;predict the expected points for next match and select the best possible players to choose from",
-    ]
-    #print(prompt_parts)
-    response = genai.chat(model="models/chat-bison-001", messages=prompt_parts, temperature=0.9)
-    # response = model.generateChat(prompt_parts)
-    print(response.last)
-    time.sleep(5)
 def analyze_stats(file_name):
     stats = defaultdict(list)
     with open(file_name, 'r') as file:
